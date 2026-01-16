@@ -1,0 +1,14 @@
+name: SCI Demo
+description: SCI calculation using dynamically retrieved values from next-calculator repo
+
+plugins:
+  - name: sci
+    inputs:
+      path: ./  # This points to your next-calculator repo
+
+tree:
+  children:
+    app:
+      pipeline:
+        compute:
+          - sci

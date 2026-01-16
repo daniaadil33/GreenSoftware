@@ -1,0 +1,23 @@
+initialize:
+  path: .
+  plugins:
+    sci:
+      method: node
+      path: '@grnsft/if-plugins/sci'
+  type: node
+name: next-calculator
+tree:
+  nodes:
+  - data:
+      embodied_carbon: 950
+      energy:
+        carbon_intensity: 433
+        kwh: 517.2794
+      location:
+        latitude: 12.97
+        longitude: 77.59
+      plugin_path: '@grnsft/if-plugins/sci'
+      requests: 976
+    name: main
+    type: function
+  type: static

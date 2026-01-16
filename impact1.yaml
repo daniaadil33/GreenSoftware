@@ -1,0 +1,37 @@
+schema: 1
+name: SCI Calculation for Next Calculator
+description: Dynamically calculate SCI using extracted values
+initialize:
+  plugins:
+    extract:
+      method: MockObservations
+      path: mock-observations
+      config:
+        observations:
+          energy: 2245.066
+          grid/carbon-intensity: 300
+          embodied-carbon: 950
+          requests: 26
+    sci-o:
+      method: SCI-O
+      path: sci-o
+    sci-m:
+      method: SCI-M
+      path: sci-m
+    sci:
+      method: SCI
+      path: sci
+      config:
+        functional-unit: requests
+        functional-unit-time: 1 day
+tree:
+  children:
+    main:
+      pipeline:
+        compute:
+        - extract
+        - sci-o
+        - sci-m
+        - sci
+output:
+  format: json
